@@ -54,5 +54,4 @@ def train(x, y, theta0, theta1, lr, n_cycle, plot, convergence_threshold=1e-6):
 
 def read_dataset(path):
 	df = pd.read_csv(path).astype(float)
-	# get values without using comuns names
 	return df.iloc[:, 0].values, df.iloc[:, 1].values
