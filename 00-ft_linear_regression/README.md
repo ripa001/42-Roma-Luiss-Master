@@ -1,5 +1,5 @@
 # Ft_linear_regression
-This project is an introduction to the linear regression. The goal is to find a linear function that fits the given data points.
+This project is an introduction to the linear regression. The goal is to use the linear regression with a given formula: ```price = θ0 + (θ1 * mileage)```. to estimate the price of a car. With thetas being the parameters of the linear function, calculated with the gradient descent algorithm: ```θ0 = θ0 - α * (1/m) * ∑(h(x) - y)``` and ```θ1 = θ1 - α * (1/m) * ∑((h(x) - y) * x)```.
 
 In the data.csv file, you will find the data points used for the training. The first column is the mileage (km) and the second column is the price (euros). The goal is to find the linear function that fits these data points.
 
