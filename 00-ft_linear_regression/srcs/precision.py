@@ -15,7 +15,7 @@ def main():
 	# if exist file thetas.csv
 	if os.path.isfile('thetas.csv'):
 		with open('thetas.csv', 'r') as f:
-			theta0, theta1, x_min, x_max = f.read().split(',')
+			theta0, theta1 = f.read().split(',')
 			theta0 = float(theta0)
 			theta1 = float(theta1)
 

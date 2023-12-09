@@ -7,10 +7,10 @@ from LinearRegression import train, read_dataset
 
 
 
-def save_model(theta0, theta1, x):
+def save_model(theta0, theta1):
 	
 	with open('thetas.csv', 'w') as f:
-		f.write("{},{},{},{}".format(theta0, theta1, x.max(), x.min()))
+		f.write("{},{}".format(theta0, theta1))
 
 
 
@@ -25,7 +25,7 @@ def main():
 	if plot:
 		plot_data(x, y, theta0, theta1, "before_training")
 	theta0, theta1, losses = train(x, y, theta0, theta1, lr, n_cycle, plot, convergence_threshold=1e-7)
-	save_model(theta0, theta1, x)
+	save_model(theta0, theta1)
 	print("theta0: ", theta0)
 	print("theta1: ", theta1)
 	y_hat = theta0 + theta1 * x
