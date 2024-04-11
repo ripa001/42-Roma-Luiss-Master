@@ -41,8 +41,13 @@ class Dataset:
 	def get_data_shape(self):
 		return self.x.shape, self.y.shape
 	
-	def select_features(self, features):
+	def select_features(self, features, use_hands=False):
+		if use_hands:
+			features.append(3) # add the hand feature
+			
 		self.x = self.x[:, features]
+		if 3 in features:
+			self.x[:, -1] = (self.x[:, -1] == "Right").astype(int)
 
 	def prepare_data(self):
 		#fill nan values with the mean of the column

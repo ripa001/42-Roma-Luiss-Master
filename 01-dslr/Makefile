@@ -27,7 +27,7 @@ train:
 
 train_stochastic:
 	echo "Training model..."
-	python srcs/logreg_train.py Dataset/dataset_train.csv --stochastic
+	python srcs/logreg_train.py Dataset/dataset_train.csv --stochastic --schedule_lr
 
 predict:
 	echo "Predicting..."

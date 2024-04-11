@@ -72,19 +72,24 @@ class LogisticRegression:
 			precision_history.append(self.precision(y, h))
 		return theta, cost_history, precision_history
 	
-	def stochastic_gradient_descent(self, X, y):
+	def stochastic_gradient_descent(self, X, y, schedule_lr=False):
 		m, n = X.shape
 		theta = np.zeros(n, dtype=float)
 		cost_history = []
 		precision_history = []
+		lr_tmp = self.lr
 		for i in tqdm(range(self.num_iter)):
+			if schedule_lr:
+				# self.lr_tmp = 1 / (i + 1)
+				lr_tmp = lr_tmp * (1 - 0.005 * i)
+				# self.lr_tmp = self.lr_tmp * (1 - 0.0001 * i)
 			for j in range(m):
 				rand_index = np.random.randint(0, m)
 				X_i = X[rand_index, :].reshape(1, n)
 				y_i = y[rand_index].reshape(1)
 				h = self.h0(X_i, theta)
 				gd = X_i.T @ (h - y_i)
-				theta -= self.lr * gd.astype(float)
+				theta -= lr_tmp * gd.astype(float)
 				# cost = self.cost_function(X_i, y_i, theta)
 				# cost_history.append(cost)
 				# precision_history.append(self.precision(y_i, h))
@@ -95,7 +100,7 @@ class LogisticRegression:
 		return theta, cost_history, precision_history
 	
 	
-	def fit(self, X, y, stochastic=False):
+	def fit(self, X, y, stochastic=False, schedule_lr=False):
 		self.unique_labels = np.unique(y)
 		num_labels = len(self.unique_labels)
 		self.tetha_values = []
@@ -103,10 +108,8 @@ class LogisticRegression:
 		self.precision_history = []
 		for i in range(num_labels):
 			y_i = np.where(y == self.unique_labels[i], 1, 0)
-			if stochastic:
-				tetha, cost_history, precision_history = self.stochastic_gradient_descent(X, y_i)
-			else:
-				tetha, cost_history, precision_history = self.gradient_descent(X, y_i)
+			tetha, cost_history, precision_history = self.stochastic_gradient_descent(X, y_i, schedule_lr) \
+				if stochastic else self.gradient_descent(X, y_i)
 			self.tetha_values.append(tetha)
 			self.cost_history.append(cost_history)
 			self.precision_history.append(precision_history)
