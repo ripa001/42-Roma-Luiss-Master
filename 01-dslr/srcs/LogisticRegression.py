@@ -80,9 +80,7 @@ class LogisticRegression:
 		lr_tmp = self.lr
 		for i in tqdm(range(self.num_iter)):
 			if schedule_lr:
-				# self.lr_tmp = 1 / (i + 1)
 				lr_tmp = lr_tmp * (1 - 0.005 * i)
-				# self.lr_tmp = self.lr_tmp * (1 - 0.0001 * i)
 			for j in range(m):
 				rand_index = np.random.randint(0, m)
 				X_i = X[rand_index, :].reshape(1, n)
@@ -90,9 +88,6 @@ class LogisticRegression:
 				h = self.h0(X_i, theta)
 				gd = X_i.T @ (h - y_i)
 				theta -= lr_tmp * gd.astype(float)
-				# cost = self.cost_function(X_i, y_i, theta)
-				# cost_history.append(cost)
-				# precision_history.append(self.precision(y_i, h))
 			cost = self.cost_function(X, y, theta)
 			cost_history.append(cost)
 			precision_history.append(self.precision(y, self.h0(X, theta)))
