@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
+import os
 from os import path
 from tqdm import tqdm
 
@@ -108,6 +109,9 @@ class LogisticRegression:
 			self.tetha_values.append(tetha)
 			self.cost_history.append(cost_history)
 			self.precision_history.append(precision_history)
+		if not os.path.exists("srcs/plotting/plots"):
+			os.mkdir("srcs/plotting/plots")
+			
 		self.plot_cost()
 		self.plot_precision()
 		self.save_thetas()

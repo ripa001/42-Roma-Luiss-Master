@@ -4,11 +4,11 @@ all: init train
 init:
 	tar -xf Dataset/datasets.tgz -C Dataset/ && mv Dataset/datasets/* Dataset/ && rm -rf Dataset/datasets
 	pip install pipenv
-	pipenv install
-	pipenv shell
+	python3 -m pipenv install
+	python3 -m pipenv shell
 
 env:
-	pipenv shell
+	python3 -m pipenv shell
 
 describe:
 	echo "Training set"
