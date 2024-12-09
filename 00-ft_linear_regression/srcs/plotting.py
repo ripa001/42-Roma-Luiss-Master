@@ -10,12 +10,6 @@ def plot_data(x, y, theta0, theta1, name):
 		pass
 	else:
 		plt.savefig(f'srcs/plot_{name}.png')
-		# plt.figure()
-	# 	plt.plot(x, y, 'ro', markersize=4)
-	# 	plt.plot(x, theta0 + theta1 * x, 'b')
-	# 	plt.xlabel('Mileage')
-	# 	plt.ylabel('Price')
-	# 	plt.savefig(f'srcs/plot_final.png')
 	try:
 		plt.show()
 	except:
