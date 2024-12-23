@@ -72,7 +72,7 @@ class PolynomialParser:
             try:
                 coefficient = float(parts[0])
             except ValueError:
-                if parts[0] == 'X':
+                if parts[0].startswith("X") or parts[0].startswith("+X"): 
                     coefficient = 1
                 elif parts[0] == '-X':
                     coefficient = -1

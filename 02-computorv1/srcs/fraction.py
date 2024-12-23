@@ -71,7 +71,8 @@ class Fraction:
         """Convert fraction to string"""
         if self.denominator == 1:
             return str(self.numerator)
-        return f"{self.numerator}/{self.denominator}"
+        return f"""{self.numerator}/{self.denominator} 
+                    --> {self.numerator/self.denominator}"""
 
     def __repr__(self) -> str:
         return str(self)

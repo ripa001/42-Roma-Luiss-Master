@@ -38,7 +38,7 @@ def main():
     except DegreeError as e:
         print(str(e))
     except Exception as e:
-        print(f"Error: {str(e)}")
+        print(f"Error Check your input: {str(e)}")
 
 if __name__ == "__main__":
     main()
