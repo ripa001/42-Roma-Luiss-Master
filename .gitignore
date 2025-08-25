@@ -4,8 +4,6 @@ __pycache__/
 *$py.class
 
 package-lock.json
-/cache
-/artifacts
 # C extensions
 *.so
 
