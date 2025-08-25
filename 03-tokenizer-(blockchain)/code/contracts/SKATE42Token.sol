@@ -20,7 +20,7 @@ contract Trick42Token is ERC20, ERC20Burnable, Pausable, AccessControl, Reentran
     bytes32 public constant ADMIN_ROLE = keccak256("ADMIN_ROLE");
     
     // Token metadata
-    string public logoURI = "https://raw.githubusercontent.com/ripa001/42skate-assets/main/logo.png";
+    string public logoURI = "https://raw.githubusercontent.com/ripa001/42-Roma-Luiss-Master/refs/heads/main/03-tokenizer-(blockchain)/deployment/assets/logo.png";
     string public website = "https://42skate.io";
     string public description = "42Skate Token - Decentralized Skateboarding Trick Validation on BNB Chain";
     
