@@ -1,0 +1,29 @@
+{
+  "name": "42Skate Token",
+  "symbol": "42SK8",
+  "address": "CONTRACT_ADDRESS_AFTER_DEPLOYMENT",
+  "chainId": 97,
+  "decimals": 18,
+  "logoURI": "https://raw.githubusercontent.com/ripa001/42skate-assets/main/logo.png",
+  "tags": [
+    "skateboarding",
+    "validation",
+    "community",
+    "sports",
+    "nft",
+    "gamefi"
+  ],
+  "description": "42Skate Token - Decentralized Skateboarding Trick Validation on BNB Chain",
+  "website": "https://42skate.io",
+  "twitter": "@42SkateToken",
+  "coinGeckoId": "",
+  "coinMarketCapId": "",
+  "explorer": "https://testnet.bscscan.com/token/CONTRACT_ADDRESS_AFTER_DEPLOYMENT",
+  "discord": "",
+  "telegram": "",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  }
+}
