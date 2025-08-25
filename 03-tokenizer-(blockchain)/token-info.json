@@ -1,7 +1,7 @@
 {
   "name": "42Skate Token",
   "symbol": "42SK8",
-  "address": "CONTRACT_ADDRESS_AFTER_DEPLOYMENT",
+  "address": "0x8b0c3e39e1fF40001D94B0f2094b64aDF4406d58",
   "chainId": 97,
   "decimals": 18,
   "logoURI": "https://raw.githubusercontent.com/ripa001/42skate-assets/main/logo.png",
@@ -18,7 +18,7 @@
   "twitter": "@42SkateToken",
   "coinGeckoId": "",
   "coinMarketCapId": "",
-  "explorer": "https://testnet.bscscan.com/token/CONTRACT_ADDRESS_AFTER_DEPLOYMENT",
+  "explorer": "https://testnet.bscscan.com/token/0x8b0c3e39e1fF40001D94B0f2094b64aDF4406d58",
   "discord": "",
   "telegram": "",
   "version": {

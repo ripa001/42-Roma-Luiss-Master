@@ -21,8 +21,8 @@ describe("Trick42Token", function () {
   
   describe("Deployment", function () {
     it("Should set the right token name and symbol", async function () {
-      expect(await trick42Token.name()).to.equal("Trick42 Token");
-      expect(await trick42Token.symbol()).to.equal("T42");
+      expect(await trick42Token.name()).to.equal("42Skate");
+      expect(await trick42Token.symbol()).to.equal("42SK8");
     });
     
     it("Should set the correct decimals", async function () {

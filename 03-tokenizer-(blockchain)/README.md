@@ -33,9 +33,10 @@ We chose BNB Chain for several compelling reasons:
 - **Symbol**: 42SK8
 - **Decimals**: 18
 - **Total Supply**: 42,000,000 42SK8 (minted progressively)
-- **Contract Address**: `0x... (To be deployed)`
+- **Contract Address**: `0x8b0c3e39e1fF40001D94B0f2094b64aDF4406d58`
 - **Network**: BNB Smart Chain Testnet
 - **Chain ID**: 97
+- **BSCScan**: https://testnet.bscscan.com/address/0x8b0c3e39e1fF40001D94B0f2094b64aDF4406d58
 
 ## Key Features
 
