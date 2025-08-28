@@ -1,15 +1,15 @@
-# 42Skate Token Deployment Guide
+# 🚀 SKATE42Token Deployment Guide
 
-## Prerequisites
+## 📋 Prerequisites
 
-Before deploying the 42Skate Token, ensure you have:
+Before deploying the SKATE42Token, ensure you have:
 
-1. **Node.js** (v16 or higher) - [Download](https://nodejs.org/)
+1. **Node.js** (v18 or higher) - [Download](https://nodejs.org/)
 2. **MetaMask** wallet - [Download](https://metamask.io/)
 3. **Test BNB** - Get from [BNB Testnet Faucet](https://testnet.bnbchain.org/faucet-smart)
 4. **BscScan API Key** (optional) - [Get API Key](https://bscscan.com/myapikey)
 
-## Step 1: Environment Setup
+## 🛠️ Step 1: Environment Setup
 
 ### 1.1 Install Dependencies
 
@@ -20,26 +20,26 @@ npm install
 
 This will install:
 - Hardhat development environment
-- OpenZeppelin contracts
-- Testing utilities
-- Deployment tools
+- OpenZeppelin contracts (AccessControl, ERC20, Pausable)
+- Testing utilities and scripts
+- BSC network configuration
 
 ### 1.2 Configure Environment Variables
 
 1. Copy the example environment file:
 ```bash
-cp ../deployment/.env.example ../deployment/.env
+cp .env.example .env
 ```
 
 2. Edit `.env` with your values:
 ```env
-PRIVATE_KEY=your_metamask_private_key
-BSCSCAN_API_KEY=your_bscscan_api_key (optional)
+PRIVATE_KEY=your_metamask_private_key_without_0x
+BSC_API_KEY=your_bscscan_api_key_optional
 ```
 
 **⚠️ Security Warning**: Never commit your `.env` file or share your private key!
 
-## Step 2: MetaMask Configuration
+## 📱 Step 2: MetaMask Configuration
 
 ### 2.1 Add BNB Smart Chain Testnet
 
@@ -47,7 +47,17 @@ BSCSCAN_API_KEY=your_bscscan_api_key (optional)
 2. Click network dropdown → "Add Network"
 3. Add manually with these settings:
 
-- **Network Name**: BNB Smart Chain Testnet
+- **Network Name**: BSC Testnet
+- **RPC URL**: `https://data-seed-prebsc-1-s1.bnbchain.org:8545`
+- **Chain ID**: `97`
+- **Currency Symbol**: `BNB`
+- **Block Explorer**: `https://testnet.bscscan.com`
+
+### 2.2 Get Test BNB
+
+1. Visit [BNB Testnet Faucet](https://testnet.bnbchain.org/faucet-smart)
+2. Connect your MetaMask wallet
+3. Request test BNB (you need ~0.1 BNB for deployment)
 - **RPC URL**: https://data-seed-prebsc-1-s1.binance.org:8545/
 - **Chain ID**: 97
 - **Currency Symbol**: tBNB

@@ -1,102 +1,188 @@
-# 42Skate Token - Skateboarding Trick Validation on BNB Chain 🛹
+# 🛹 SKATE42Token - Decentralized Skateboarding Ecosystem
 
-## Overview
+[![BSC Testnet](https://img.shields.io/badge/BSC-Testnet-yellow)](https://testnet.bscscan.com)
+[![Solidity](https://img.shields.io/badge/Solidity-0.8.19-blue)](https://soliditylang.org/)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-42Skate Token is a BEP-20 compliant token built on BNB Chain that revolutionizes the skateboarding community by creating a decentralized validation and reward system for skateboarding tricks. This token represents reputation, skill, and credibility within the skateboarding ecosystem.
+## 🎯 Overview
 
-### Project Inspiration
+SKATE42Token revolutionizes the skateboarding community by creating a **decentralized validation and reward system** for skateboarding tricks. Built on **BNB Smart Chain**, it bridges traditional skateboarding culture with blockchain technology, creating permanent, verifiable records of achievements while fostering community engagement.
 
-The project bridges the gap between traditional skateboarding culture and blockchain technology. By tokenizing trick validation, we create a permanent, verifiable record of skateboarding achievements while fostering community engagement and peer recognition.
+### 🚀 Why SKATE42Token?
 
-## Why BNB Chain?
+- **🏆 Skill Recognition**: Validate and reward skateboarding achievements
+- **👥 Community Governance**: Decentralized decision-making via MultiSig
+- **📹 Video Validation**: Submit videos, get validated by community validators
+- **💰 Instant Rewards**: Earn 42SK8 tokens for validated tricks
+- **🔒 Permanent Records**: Immutable skateboarding achievement history
 
-We chose BNB Chain for several compelling reasons:
+## ⚡ Why BNB Smart Chain?
 
-- **Low Transaction Fees**: Essential for frequent trick validations and micro-rewards
-- **High Performance**: Fast transaction finality for real-time trick validation
-- **EVM Compatibility**: Leverages existing Solidity expertise and tooling
-- **Growing Ecosystem**: Strong support for gaming and sports-related dApps
-- **Active Community**: Vibrant developer community and extensive documentation
+- **💸 Low Fees**: ~$0.01 per validation (vs $20+ on Ethereum)
+- **🚀 High Performance**: 3-second transaction finality
+- **🔧 EVM Compatible**: Leverage existing Solidity infrastructure
+- **🌍 Growing Ecosystem**: 150M+ users, vibrant dApp community
+- **📈 Scalable**: 2,000+ TPS for mass adoption
 
-## Technical Stack
+## 🏗️ Architecture
 
-- **Smart Contract Language**: Solidity 0.8.19
-- **Development Framework**: Hardhat
-- **Testing**: Hardhat Test Suite with Ethers.js
-- **Deployment**: Hardhat Deploy Scripts
-- **Wallet**: MetaMask
-- **Network**: BNB Smart Chain Testnet
+```
+SKATE42Token Ecosystem
+├── 🎯 SKATE42Token.sol           # Main ERC20 token contract
+├── 🏛️  SimpleMultiSigWallet.sol  # Decentralized governance
+├── 📹 Video Validation System    # Submit/validate trick videos
+├── 👥 Validator Network          # Community-driven validation
+└── 🔐 Role-Based Access Control  # Secure admin functions
+```
 
-## Contract Details
+## 📊 Token Details
 
-- **Token Name**: 42Skate Token
+- **Name**: SKATE42Token (Trick42Token)
 - **Symbol**: 42SK8
 - **Decimals**: 18
-- **Total Supply**: 42,000,000 42SK8 (minted progressively)
-- **Contract Address**: `0x8b0c3e39e1fF40001D94B0f2094b64aDF4406d58`
 - **Network**: BNB Smart Chain Testnet
 - **Chain ID**: 97
-- **BSCScan**: https://testnet.bscscan.com/address/0x8b0c3e39e1fF40001D94B0f2094b64aDF4406d58
+- **Current Supply**: Dynamic (minted per validation)
+- **Max Daily Mint**: 500 42SK8 per validator
 
-## Key Features
+## 🎮 Key Features
 
-1. **Validator Role System**: Only approved validators can mint tokens for verified tricks
-2. **Trick Validation Rewards**: Skaters earn 42SK8 tokens for successfully validated tricks
-3. **Community Governance**: Token holders can participate in ecosystem decisions
-4. **Anti-Spam Mechanisms**: Cooldown periods and validation limits
-5. **Transparent Validation**: All validations are recorded on-chain
+### 🎬 Video Validation System
+- Submit skateboarding trick videos with difficulty claims
+- Community validators assess and reward performances
+- Automatic token distribution based on difficulty ratings
 
-## Project Structure
+### 🏆 Validator Economy
+- Stake tokens to become a validator
+- Earn commissions for accurate validations
+- Reputation system with performance tracking
+- Daily mint limits to prevent inflation
+
+### 🏛️ MultiSig Governance
+- Decentralized control of admin functions
+- Multi-signature wallet for critical operations
+- Community-driven parameter updates
+- Transparent governance processes
+
+### 🔒 Security Features
+- Role-based access control (OpenZeppelin)
+- Pausable contract for emergencies
+- Reentrancy protection
+- Validation cooldowns to prevent spam
+
+## 📁 Project Structure
 
 ```
-/trick42-token
-├── README.md
-├── code/
-│   ├── contracts/
-│   │   └── Trick42Token.sol
-│   ├── test/
-│   │   └── Trick42Token.test.js
-│   └── hardhat.config.js
-├── deployment/
+03-tokenizer-(blockchain)/
+├── 📋 README.md
+├── 💼 code/
+│   ├── 📜 contracts/
+│   │   ├── SKATE42Token.sol      # Main token contract
+│   │   └── SimpleMultiSigWallet.sol
+│   ├── 🧪 test/
+│   │   └── [70+ comprehensive tests]
+│   ├── 📱 scripts/
+│   │   ├── admin/                # 🛡️ Admin & governance tools
+│   │   ├── user/                 # 👤 User interaction scripts
+│   │   ├── full-workflow-test.js # 🎯 Complete system test
+│   │   └── community-test.js     # 👥 Community simulation
+│   └── ⚙️ hardhat.config.js
+├── 🚀 deployment/
 │   ├── scripts/
-│   │   └── deploy.js
-│   ├── .env.example
-│   └── deployment-guide.md
-└── documentation/
-    ├── whitepaper.md
-    └── user-guide.md
+│   │   ├── deploy-simple-testnet.js  # ⭐ Recommended deployment
+│   │   └── deploy-with-multisig.js   # Production deployment
+│   ├── deployment-guide.md
+│   └── .env.example
+└── 📚 documentation/
+    ├── user-guide.md
+    ├── multisig-integration-guide.md
+    └── whitepaper.md
 ```
 
-## Quick Start
+## 🚀 Quick Start
 
-### Prerequisites
+### 1. Prerequisites
+- Node.js 18+
+- MetaMask wallet
+- Test BNB from [Faucet](https://testnet.bnbchain.org/faucet-smart)
 
-1. Node.js (v16 or higher)
-2. npm or yarn
-3. MetaMask wallet
-4. Test BNB from [BNB Testnet Faucet](https://testnet.bnbchain.org/faucet-smart)
-
-### Installation
-
+### 2. Installation
 ```bash
-# Clone the repository
-git clone https://github.com/your-username/trick42-token.git
-cd trick42-token
-
-# Install dependencies
 cd code
 npm install
-
-# Set up environment variables
-cp deployment/.env.example deployment/.env
-# Edit .env with your private key and other configurations
 ```
 
-### Deployment
+### 3. Deploy to BSC Testnet
+```bash
+# Set up environment
+cp ../deployment/.env.example ../deployment/.env
+# Add your PRIVATE_KEY to .env
+
+# Deploy contracts
+npx hardhat run ../deployment/scripts/deploy-simple-testnet.js --network bnbTestnet
+```
+
+### 4. Test Everything
+```bash
+# Run complete system test
+npx hardhat run scripts/full-workflow-test.js --network bnbTestnet
+
+# Test community features
+npx hardhat run scripts/community-test.js --network bnbTestnet
+```
+
+## 🎯 Usage Examples
+
+### For Skaters 🛹
+```bash
+# Check your balance
+npx hardhat run scripts/user/check-my-balance.js --network bnbTestnet
+
+# Submit a video (coming soon)
+# Videos currently validated through validator interface
+```
+
+### For Validators 🏆
+```bash
+# Test validation workflow
+npx hardhat run scripts/full-workflow-test.js --network bnbTestnet
+
+# Check validator status
+npx hardhat run scripts/admin/debug-multisig.js --network bnbTestnet
+```
+
+### For Admins 🛡️
+```bash
+# Use governance tools
+npx hardhat run scripts/admin/multisig-admin-helper.js --network bnbTestnet
+```
+
+## 📱 MetaMask Integration
+
+1. **Add BSC Testnet** to MetaMask
+2. **Import Token**: Use contract address from deployment
+3. **View Balance**: See your 42SK8 tokens
+4. **Interact**: Use BSCScan for advanced features
+
+## 🔬 Testing
+
+Our comprehensive test suite includes **70+ tests** covering:
+- ✅ Token functionality (minting, burning, transfers)
+- ✅ Video submission and validation workflows
+- ✅ Validator role management and staking
+- ✅ MultiSig governance operations
+- ✅ Security features and access controls
+- ✅ Edge cases and error handling
 
 ```bash
-# Compile the contract
-npx hardhat compile
+# Run all tests
+npm test
+
+# Run specific test category
+npx hardhat test test/Token.test.js
+npx hardhat test test/VideoFeatures.test.js
+npx hardhat test test/ValidatorRewards.test.js
+```
 
 # Run tests
 npx hardhat test

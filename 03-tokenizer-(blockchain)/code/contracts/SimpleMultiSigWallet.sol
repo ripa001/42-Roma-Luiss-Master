@@ -103,13 +103,103 @@ contract SimpleMultiSigWallet {
     }
 
     function getTransaction(uint txIndex) public view returns (
-    address destination,
-    uint value,
-    bytes memory data,
-    bool executed,
-    uint confirmationsCount
+        address destination,
+        uint value,
+        bytes memory data,
+        bool executed,
+        uint confirmationsCount
     ) {
-    Transaction storage txn = transactions[txIndex];
-    return (txn.destination, txn.value, txn.data, txn.executed, txn.confirmations);
+        Transaction storage txn = transactions[txIndex];
+        return (txn.destination, txn.value, txn.data, txn.executed, txn.confirmations);
     }
+
+    /**
+     * @dev Revoke a confirmation for a transaction
+     * @param txIndex Index of transaction to revoke confirmation for
+     */
+    function revokeConfirmation(uint txIndex) 
+        public 
+        onlyOwner 
+        txExists(txIndex) 
+        notExecuted(txIndex) 
+    {
+        require(confirmations[txIndex][msg.sender], "Tx not confirmed");
+        
+        confirmations[txIndex][msg.sender] = false;
+        transactions[txIndex].confirmations -= 1;
+        
+        emit RevokeConfirmation(msg.sender, txIndex);
+    }
+
+    /**
+     * @dev Submit and execute a transaction in one call if enough confirmations
+     * @param destination Transaction target address
+     * @param value Transaction value
+     * @param data Transaction data
+     */
+    function submitAndExecuteTransaction(address destination, uint value, bytes memory data) 
+        external 
+        onlyOwner 
+        returns (uint txIndex) 
+    {
+        txIndex = transactions.length;
+        transactions.push(Transaction({
+            destination: destination,
+            value: value,
+            data: data,
+            executed: false,
+            confirmations: 1
+        }));
+        
+        confirmations[txIndex][msg.sender] = true;
+        emit SubmitTransaction(msg.sender, txIndex, destination, value, data);
+        emit ConfirmTransaction(msg.sender, txIndex);
+        
+        if (transactions[txIndex].confirmations >= required) {
+            executeTransaction(txIndex);
+        }
+        
+        return txIndex;
+    }
+
+    /**
+     * @dev Get confirmation status for a transaction and owner
+     * @param txIndex Index of transaction
+     * @param owner Address of owner
+     */
+    function getConfirmation(uint txIndex, address owner) 
+        public 
+        view 
+        returns (bool) 
+    {
+        return confirmations[txIndex][owner];
+    }
+
+    /**
+     * @dev Get all confirmations for a transaction
+     * @param txIndex Index of transaction
+     */
+    function getConfirmations(uint txIndex) 
+        public 
+        view 
+        returns (address[] memory _confirmations) 
+    {
+        address[] memory confirmationsTemp = new address[](owners.length);
+        uint count = 0;
+        uint i;
+        
+        for (i = 0; i < owners.length; i++) {
+            if (confirmations[txIndex][owners[i]]) {
+                confirmationsTemp[count] = owners[i];
+                count += 1;
+            }
+        }
+        
+        _confirmations = new address[](count);
+        for (i = 0; i < count; i++) {
+            _confirmations[i] = confirmationsTemp[i];
+        }
+    }
+
+    event RevokeConfirmation(address indexed owner, uint indexed txIndex);
 }
