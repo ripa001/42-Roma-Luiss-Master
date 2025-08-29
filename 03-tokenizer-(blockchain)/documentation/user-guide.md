@@ -16,6 +16,9 @@ This guide will help you get started with 42Skate Token (42SK8), whether you're 
 
 ---
 
+npx hardhat run ../deployment/scripts/deploy-basic.js --network localhost
+
+
 ## 1. Getting Started
 
 ### What You'll Need

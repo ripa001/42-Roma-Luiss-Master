@@ -1,8 +1,6 @@
 # 42Skate Token Whitepaper
 ## Decentralized Skateboarding Trick Validation Protocol
-
-**Version 1.0**  
-**Date: January 2025**
+https://testnet.bscscan.com/address/0x8b0c3e39e1fF40001D94B0f2094b64aDF4406d58
 
 ---
 

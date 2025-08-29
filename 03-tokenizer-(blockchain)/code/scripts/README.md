@@ -14,12 +14,6 @@ scripts/
 │   ├── get-more-tokens.js           # Request additional tokens
 │   ├── check-my-balance.js          # Check token balance
 │   └── check-balance.js             # Balance checker utility
-├── test-token.js                    # Basic token functionality tests
-├── test-validation.js               # Video validation tests
-├── test-with-metamask.js            # MetaMask integration tests
-├── community-test.js                # Community workflow simulation
-├── full-workflow-test.js            # Complete system test
-├── manual-integration-test.js       # Manual testing script
 └── README.md                        # This file
 ```
 
