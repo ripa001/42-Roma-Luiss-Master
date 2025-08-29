@@ -78,7 +78,7 @@ SKATE42Token is a blockchain-based platform designed to incentivize and reward s
 ---
 
 ## 7. Getting Started
-1. Install dependencies: `npm install`
+1. Install dependencies: `npm install` or `npm install --legacy-peer-deps` or `npm install --force`
 2. Compile contracts: `npx hardhat compile`
 3. Run tests: `npx hardhat test`
 4. Deploy contracts: See deployment scripts in `code/scripts/`

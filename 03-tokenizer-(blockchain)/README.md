@@ -82,15 +82,11 @@ SKATE42Token Ecosystem
 │   ├── 🧪 test/
 │   │   └── [70+ comprehensive tests]
 │   ├── 📱 scripts/
-│   │   ├── admin/                # 🛡️ Admin & governance tools
-│   │   ├── user/                 # 👤 User interaction scripts
-│   │   ├── full-workflow-test.js # 🎯 Complete system test
-│   │   └── community-test.js     # 👥 Community simulation
+│   │           ...
 │   └── ⚙️ hardhat.config.js
 ├── 🚀 deployment/
 │   ├── scripts/
-│   │   ├── deploy-simple-testnet.js  # ⭐ Recommended deployment
-│   │   └── deploy-with-multisig.js   # Production deployment
+│   │           ...
 │   ├── deployment-guide.md
 │   └── .env.example
 └── 📚 documentation/
