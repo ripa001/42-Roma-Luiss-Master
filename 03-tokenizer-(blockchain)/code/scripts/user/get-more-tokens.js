@@ -1,11 +1,9 @@
 const hre = require("hardhat");
+const { getContractInstance } = require('../utils/contract-helper');
 
 async function main() {
-  const contractAddress = "0x8b0c3e39e1fF40001D94B0f2094b64aDF4406d58";
-  
-  // Get the contract instance
-  const Trick42Token = await hre.ethers.getContractFactory("Trick42Token");
-  const token = await Trick42Token.attach(contractAddress);
+  // Get contract instance with verification
+  const { token, contractAddress } = await getContractInstance(hre);
   
   const [validator] = await hre.ethers.getSigners();
   

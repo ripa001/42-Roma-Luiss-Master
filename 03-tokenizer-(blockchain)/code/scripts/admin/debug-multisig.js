@@ -1,13 +1,16 @@
 const hre = require("hardhat");
 const { ethers } = require("hardhat");
+const { getContractAddress } = require('../utils/contract-helper');
 
 async function main() {
     console.log("🔍 Debug MultiSig Integration Status");
     console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
     
-    // Contract addresses from deployment
-    const MULTISIG_ADDRESS = "0x0165878A594ca255338adfa4d48449f69242Eb8F";
-    const TOKEN_ADDRESS = "0xa513E6E4b8f2a923D98304ec87F64353C4D5C853";
+    // Get contract addresses
+    const { contractAddress: TOKEN_ADDRESS } = getContractAddress();
+    const MULTISIG_ADDRESS = "0x0165878A594ca255338adfa4d48449f69242Eb8F"; // Update this as needed
+    
+    console.log("📄 Using token address:", TOKEN_ADDRESS);
     
     const [deployer, owner1, owner2, owner3] = await ethers.getSigners();
     

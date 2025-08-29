@@ -1,11 +1,9 @@
 const hre = require("hardhat");
+const { getContractInstance } = require('../utils/contract-helper');
 
 async function main() {
-  const contractAddress = "0x8b0c3e39e1fF40001D94B0f2094b64aDF4406d58";
-  
-  // Get the contract instance
-  const Trick42Token = await hre.ethers.getContractFactory("Trick42Token");
-  const token = await Trick42Token.attach(contractAddress);
+  // Get contract instance with verification
+  const { token, contractAddress } = await getContractInstance(hre);
   
   const [deployer] = await hre.ethers.getSigners();
   
@@ -22,14 +20,23 @@ async function main() {
     console.log("🎉 Success! You have 42SK8 tokens!");
     console.log("💡 They should appear in your MetaMask wallet automatically.");
     console.log("🔄 If not visible, try refreshing MetaMask or re-adding the token.");
+  } else {
+    console.log("ℹ️  You have 0 tokens. To get tokens, you can:");
+    console.log("   - Participate in validation activities");
+    console.log("   - Use the get-tokens.js script if available");
+    console.log("   - Check if tokens need to be minted by an admin");
   }
   
   // Check validator info
-  const validatorInfo = await token.getValidatorInfo(deployer.address);
-  console.log("\n📊 Your Validator Stats:");
-  console.log("- Total Validations:", validatorInfo.totalValidations.toString());
-  console.log("- Total Earned:", hre.ethers.formatEther(validatorInfo.totalEarned), "42SK8");
-  console.log("- Reputation:", validatorInfo.reputation.toString());
+  try {
+    const validatorInfo = await token.getValidatorInfo(deployer.address);
+    console.log("\n📊 Your Validator Stats:");
+    console.log("- Total Validations:", validatorInfo.totalValidations.toString());
+    console.log("- Total Earned:", hre.ethers.formatEther(validatorInfo.totalEarned), "42SK8");
+    console.log("- Reputation:", validatorInfo.reputation.toString());
+  } catch (error) {
+    console.log("\n⚠️  Could not fetch validator info:", error.message);
+  }
 }
 
 main()
